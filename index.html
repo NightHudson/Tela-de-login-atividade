@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Moderno</title>
     
-    <!-- Tailwind CSS e DaisyUI via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <style>
@@ -25,14 +23,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--fallback-b1,oklch(var(--b1))); /* Always dark background */
+            background-color: var(--fallback-b1,oklch(var(--b1))); 
         }
         
         .login-card {
             max-width: 400px;
             width: 90%;
             transition: all 0.3s ease;
-            position: relative; /* Added for positioning the theme toggle */
+            position: relative; 
         }
         
         .input-group {
@@ -61,7 +59,7 @@
         }
         
         .theme-toggle:hover {
-            color: var(--fallback-p,oklch(var(--p))) !important; /* Force blue color on hover */
+            color: var(--fallback-p,oklch(var(--p))) !important; 
         }
         
         .input-field {
@@ -93,8 +91,8 @@
         }
         
         .login-btn:hover {
-            background-color: var(--fallback-p,oklch(var(--p))) !important; /* Keep blue on hover */
-            transform: translateY(-2px); /* Added the same animation as social buttons */
+            background-color: var(--fallback-p,oklch(var(--p))) !important; 
+            transform: translateY(-2px); 
         }
         
         .divider {
