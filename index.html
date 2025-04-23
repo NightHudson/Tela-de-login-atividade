@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Moderno</title>
+    
+    <!-- Tailwind CSS e DaisyUI via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--fallback-b1,oklch(var(--b1))); /* Always dark background */
+        }
+        
+        .login-card {
+            max-width: 400px;
+            width: 90%;
+            transition: all 0.3s ease;
+            position: relative; /* Added for positioning the theme toggle */
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--fallback-bc,oklch(var(--bc)/0.5));
+        }
+        
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--fallback-bc,oklch(var(--bc)/0.8));
+            transition: color 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            color: var(--fallback-p,oklch(var(--p))) !important; /* Force blue color on hover */
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border-radius: 0.5rem;
+            background-color: var(--fallback-b2,oklch(var(--b2)));
+            border: 1px solid var(--fallback-bc,oklch(var(--bc)/0.2));
+            color: var(--fallback-bc,oklch(var(--bc)));
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--fallback-p,oklch(var(--p)));
+            box-shadow: 0 0 0 2px var(--fallback-p,oklch(var(--p)/0.2));
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background-color: var(--fallback-p,oklch(var(--p)));
+            color: var(--fallback-pc,oklch(var(--pc)));
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .login-btn:hover {
+            background-color: var(--fallback-p,oklch(var(--p))) !important; /* Keep blue on hover */
+            transform: translateY(-2px); /* Added the same animation as social buttons */
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+        }
+        
+        .divider-text {
+            padding: 0 1rem;
+            color: var(--fallback-bc,oklch(var(--bc)/0.6));
+        }
+        
+        .social-login {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            background-color: var(--fallback-b2,oklch(var(--b2)));
+            border: 1px solid var(--fallback-bc,oklch(var(--bc)/0.2));
+            color: var(--fallback-bc,oklch(var(--bc)));
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-btn:hover {
+            background-color: var(--fallback-b3,oklch(var(--b3)));
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 640px) {
+            .login-card {
+                width: 95%;
+                padding: 1.5rem;
+            }
+            
+            .theme-toggle {
+                top: 0.75rem;
+                right: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container bg-base-100">
+        <div class="login-card bg-base-200 shadow-xl rounded-xl p-8" data-theme="dark">
+            <!-- Theme toggle inside the login card -->
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="ph ph-sun" id="theme-icon"></i>
+            </button>
+            
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold mb-2">Bem-vindo de volta</h1>
+                <p class="text-base-content/60">Entre com sua conta para continuar</p>
+            </div>
+            
+            <form>
+                <div class="input-group">
+                    <i class="input-icon ph ph-envelope"></i>
+                    <input type="email" class="input-field" placeholder="Email" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="input-icon ph ph-lock"></i>
+                    <input type="password" class="input-field" placeholder="Senha" required>
+                </div>
+                
+                <div class="flex justify-between items-center mb-6">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" class="checkbox checkbox-sm checkbox-primary">
+                        <span class="text-sm">Lembrar-me</span>
+                    </label>
+                    
+                    <a href="#" class="text-sm text-primary hover:underline">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="login-btn">Entrar</button>
+            </form>
+            
+            <div class="divider">
+                <span class="divider-text">ou continue com</span>
+            </div>
+            
+            <div class="social-login">
+                <button class="social-btn">
+                    <i class="ph ph-google-logo text-xl"></i>
+                </button>
+                <button class="social-btn">
+                    <i class="ph ph-facebook-logo text-xl"></i>
+                </button>
+                <button class="social-btn">
+                    <i class="ph ph-github-logo text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-base-content/60">
+                    Não tem uma conta? 
+                    <a href="#" class="text-primary hover:underline">Registre-se</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Função para alternar entre temas claro e escuro apenas para o card
+        function toggleTheme() {
+            const loginCard = document.querySelector('.login-card');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (loginCard.getAttribute('data-theme') === 'dark') {
+                loginCard.setAttribute('data-theme', 'light');
+                themeIcon.classList.remove('ph-sun');
+                themeIcon.classList.add('ph-moon');
+            } else {
+                loginCard.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('ph-moon');
+                themeIcon.classList.add('ph-sun');
+            }
+        }
+        
+        // Verificar tema inicial e definir o ícone correto
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginCard = document.querySelector('.login-card');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (loginCard.getAttribute('data-theme') === 'dark') {
+                themeIcon.classList.add('ph-sun');
+            } else {
+                themeIcon.classList.add('ph-moon');
+            }
+        });
+    </script>
+</body>
+</html>
