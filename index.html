@@ -155,7 +155,7 @@
 <body>
     <div class="login-container bg-base-100">
         <div class="login-card bg-base-200 shadow-xl rounded-xl p-8" data-theme="dark">
-            <!-- Theme toggle inside the login card -->
+            
             <button class="theme-toggle" onclick="toggleTheme()">
                 <i class="ph ph-sun" id="theme-icon"></i>
             </button>
@@ -214,7 +214,7 @@
     </div>
     
     <script>
-        // Função para alternar entre temas claro e escuro apenas para o card
+        
         function toggleTheme() {
             const loginCard = document.querySelector('.login-card');
             const themeIcon = document.getElementById('theme-icon');
@@ -230,8 +230,7 @@
             }
         }
         
-        // Verificar tema inicial e definir o ícone correto
-        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function() {
             const loginCard = document.querySelector('.login-card');
             const themeIcon = document.getElementById('theme-icon');
             
