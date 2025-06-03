@@ -1,6 +1,6 @@
 # 🖥️ Tela de Login com Tailwind CSS
 
-Este é um projeto simples e moderno de tela de login desenvolvido com **HTML** e **Tailwind CSS**. Ideal para aplicações web que precisam de uma interface limpa, responsiva e fácil de customizar.
+Este é um projeto simples e moderno de tela de login desenvolvido com **HTML** e **Tailwind CSS**. Ideal para aplicações web que precisam de uma interface limpa, responsiva e com um botão switch para alterna o tema em claro e escuro e fácil de customizar.
 
 ---
 
