@@ -15,8 +15,7 @@ Este é um projeto simples e moderno de tela de login desenvolvido com **HTML** 
 
 Abaixo está uma prévia visual da tela de login:
 
-![Prévia do Projeto](![Captura de tela 2025-06-02 211348](https://github.com/user-attachments/assets/0bbabbee-9037-454c-88da-e76647806433)
-)
+![Prévia do Projeto]![Captura de tela 2025-06-02 211348](https://github.com/user-attachments/assets/0bbabbee-9037-454c-88da-e76647806433)
 > Substitua o caminho acima pela imagem real da sua tela de login.
 
 ---
